@@ -1,13 +1,14 @@
 const Banner = () => {
     return (
-        <div className="hero min-h-screen" style={{ backgroundImage: 'url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg)' }}>
+        <div className="hero min-h-screen bg-center bg-cover" style={{ backgroundImage: 'url(https://i.ibb.co/FbxrXQ8/download-25.jpg)' }}>
             <div className="hero-overlay bg-opacity-60"></div>
             <div className="hero-content text-center text-neutral-content">
-                <div className="max-w-md">
-                    <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-                    <p className="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                    <button className="btn btn-primary">Get Started</button>
+                <div className=" text-left text-white w-1/2 pl-10">
+                    <h1 className="mb-5 text-4xl font-bold">Discover the World Today: Todays Blog Chronicles</h1>
+                    <p className="mb-5">Welcome to Todays Blog, where each day brings a new chapter to unfold. Immerse yourself in a collection of stories, ideas, and experiences that capture the essence of the present moment. Join us on this daily adventure!</p>
+                    <button className="btn btn-outline text-white">Get Started</button>
                 </div>
+                <div className="w-1/2"></div>
             </div>
         </div>
     );
