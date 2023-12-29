@@ -5,6 +5,7 @@ const Blogs = async () => {
 
     const res = await fetch("http://localhost:5000/blogs")
     const blogsData = await res.json()
+    console.log(blogsData)
 
 
     return (

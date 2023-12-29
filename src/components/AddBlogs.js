@@ -1,7 +1,16 @@
 "use client"
 
+import { useContext } from "react";
+import { AuthContext } from "./Hooks/AuthProvider";
+import useAxiosPublic from "./Hooks/useAxiosPublic";
+import Swal from "sweetalert2";
+
 
 const AddBlogs = () => {
+
+    const { user } = useContext(AuthContext)
+    console.log(user)
+    const axiosPublic = useAxiosPublic()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -14,7 +23,17 @@ const AddBlogs = () => {
 
         const newBlogData = { author, title, image, category, content }
 
-        console.log(newBlogData)
+        const res = await axiosPublic.post('/blogs', newBlogData)
+        const data = await res.data
+
+        if (res.data.acknowledged) {
+            Swal.fire({
+                title: "success create New blog",
+                showConfirmButton: false,
+                timer: 1500
+            })
+            form.reset()
+        }
 
     }
 

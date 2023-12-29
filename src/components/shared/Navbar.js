@@ -1,11 +1,16 @@
+"use client"
+
 import Link from 'next/link';
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../Hooks/AuthProvider';
 
 const Navbar = () => {
 
+    const { user } = useContext(AuthContext)
+
     const ulLinks = <>
         <li><Link href={'/'}>Home</Link></li>
-        <li><Link href={'/addBlog'}>Add Blog</Link></li>
+        <li><Link href={'/addBlog'}>Add New Blogs</Link></li>
         <li><Link href={'/'}>Blogs</Link></li>
     </>
 
@@ -33,11 +38,11 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                
-                    <Link href={'/login'}>
-                        <button className="btn btn-outline">Login</button>
-                    </Link>
-                
+
+                <Link href={'/login'}>
+                    <button className="btn btn-outline">Login</button>
+                </Link>
+
             </div>
         </div>
     );
