@@ -4,6 +4,8 @@ import { useContext } from "react";
 import { AuthContext } from "../Hooks/AuthProvider";
 import Link from "next/link";
 import Swal from "sweetalert2";
+import { updateProfile } from "firebase/auth";
+import auth from "../Utilites/firebase";
 
 
 const SignUp = () => {
@@ -20,13 +22,21 @@ const SignUp = () => {
 
         createUser(email, password)
             .then(result => {
-                if (result.user) {
-                    Swal.fire({
-                        title: "success create account",
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
-                }
+
+                updateProfile(auth.currentUser, {
+                    displayName: name, photoURL: PhotoURL
+                }).then(() => {
+                    if (result.user) {
+                        Swal.fire({
+                            title: "success create account",
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                    }
+                }).catch((error) => {
+                });
+
+
             })
             .catch(error => {
                 Swal.fire({

@@ -3,16 +3,32 @@
 import Link from 'next/link';
 import React, { useContext } from 'react';
 import { AuthContext } from '../Hooks/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Navbar = () => {
 
-    const { user } = useContext(AuthContext)
+    const { user, logout } = useContext(AuthContext)
 
     const ulLinks = <>
         <li><Link href={'/'}>Home</Link></li>
-        <li><Link href={'/addBlog'}>Add New Blogs</Link></li>
-        <li><Link href={'/'}>Blogs</Link></li>
+        {
+            user && <li><Link href={'/addBlog'}>Add New Blogs</Link></li>
+        }
+        <li><Link href={'/'}>My Blogs</Link></li>
     </>
+
+    const handleLogout = () => {
+        logout()
+        .then(result=>{
+            Swal.fire({
+                title: "Logout successful",
+                showConfirmButton: false,
+                timer: 1500
+            })
+        })
+    }
+
+
 
 
     return (
@@ -39,9 +55,11 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
 
-                <Link href={'/login'}>
-                    <button className="btn btn-outline">Login</button>
-                </Link>
+                {
+                    user ? <button onClick={handleLogout} className='btn btn-outline text-red-600'>Logout</button> : <Link href={'/login'}>
+                        <button className="btn btn-outline">Login</button>
+                    </Link>
+                }
 
             </div>
         </div>

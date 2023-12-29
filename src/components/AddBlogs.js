@@ -15,7 +15,7 @@ const AddBlogs = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         const form = e.target
-        const author = form.author.value
+        const author = user?.displayName
         const title = form.title.value
         const image = form.image.value
         const category = form.category.value
@@ -26,7 +26,7 @@ const AddBlogs = () => {
         const res = await axiosPublic.post('/blogs', newBlogData)
         const data = await res.data
 
-        if (res.data.acknowledged) {
+        if (data.acknowledged) {
             Swal.fire({
                 title: "success create New blog",
                 showConfirmButton: false,
@@ -44,7 +44,7 @@ const AddBlogs = () => {
             <form onSubmit={handleSubmit} className='grid items-center grid-cols-2 justify-center gap-5 w-full md:w-1/2 xl:w-[40%] mx-auto mt-10'>
                 <div className='flex flex-col space-y-2'>
                     <label className='text-sm font-bold '>Author</label>
-                    <input required name='author' type="text" placeholder="Type here" className="input input-bordered w-full " />
+                    <input required value={user?.displayName} disabled  type="text" placeholder="Type here" className="input input-bordered w-full " />
                 </div>
                 <div className='flex flex-col space-y-2'>
                     <label className='text-sm font-bold '>Title</label>
