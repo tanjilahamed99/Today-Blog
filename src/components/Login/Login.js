@@ -3,6 +3,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../Hooks/AuthProvider";
 import Link from "next/link";
+import Swal from "sweetalert2";
 
 
 const Login = () => {
@@ -17,10 +18,20 @@ const Login = () => {
 
         loginUser(email,password)
             .then(result => {
-                console.log(result)
+               if(result.user){
+                Swal.fire({
+                    title: "success create account",
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+               }
             })
             .catch(error => {
-                console.log(error)
+                Swal.fire({
+                    title: error.message,
+                    showConfirmButton: false,
+                    timer: 5000
+                })
             })
 
     }
