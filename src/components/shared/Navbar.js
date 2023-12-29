@@ -12,9 +12,14 @@ const Navbar = () => {
     const ulLinks = <>
         <li><Link href={'/'}>Home</Link></li>
         {
+            !user && <li><Link href={'/signUp'}>SignUp</Link></li> 
+        }
+        {
             user && <li><Link href={'/addBlog'}>Add New Blogs</Link></li>
         }
-        <li><Link href={'/'}>My Blogs</Link></li>
+        {
+            user && <li><Link href={'/myBlog'}>My Blogs</Link></li>
+        }
     </>
 
     const handleLogout = () => {

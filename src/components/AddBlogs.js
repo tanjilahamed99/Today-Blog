@@ -9,8 +9,8 @@ import Swal from "sweetalert2";
 const AddBlogs = () => {
 
     const { user } = useContext(AuthContext)
-    console.log(user)
     const axiosPublic = useAxiosPublic()
+    const date = new Date()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -20,8 +20,10 @@ const AddBlogs = () => {
         const image = form.image.value
         const category = form.category.value
         const content = form.content.value
+        const postedDate = date
+        const email = user?.email 
 
-        const newBlogData = { author, title, image, category, content }
+        const newBlogData = { author, title, image, category, content,postedDate,email }
 
         const res = await axiosPublic.post('/blogs', newBlogData)
         const data = await res.data
@@ -44,7 +46,7 @@ const AddBlogs = () => {
             <form onSubmit={handleSubmit} className='grid items-center grid-cols-2 justify-center gap-5 w-full md:w-1/2 xl:w-[40%] mx-auto mt-10'>
                 <div className='flex flex-col space-y-2'>
                     <label className='text-sm font-bold '>Author</label>
-                    <input required value={user?.displayName} disabled  type="text" placeholder="Type here" className="input input-bordered w-full " />
+                    <input required value={user?.displayName} disabled type="text" placeholder="Type here" className="input input-bordered w-full " />
                 </div>
                 <div className='flex flex-col space-y-2'>
                     <label className='text-sm font-bold '>Title</label>
