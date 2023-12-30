@@ -4,11 +4,13 @@ import { useContext } from "react";
 import { AuthContext } from "../Hooks/AuthProvider";
 import Link from "next/link";
 import Swal from "sweetalert2";
+import { useRouter } from "next/navigation";
 
 
 const Login = () => {
 
     const { loginUser } = useContext(AuthContext)
+    const router = useRouter()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -25,6 +27,7 @@ const Login = () => {
                     timer: 1500
                 })
                }
+               router.push('/')
             })
             .catch(error => {
                 Swal.fire({
@@ -38,19 +41,19 @@ const Login = () => {
 
 
     return (
-        <div>
-            <h2 className='text-3xl font-bold text-center mt-10'>Login</h2>
-            <form onSubmit={handleSubmit} className=' w-1/2 mx-auto space-y-6 bg-white border-2 p-5 mt-5 rounded-2xl'>
+        <div className="p-5 bg-center h-[100vh]" style={{backgroundImage:'url(https://i.ibb.co/TKf5SkS/sean-oulashin-KMn4-VEe-EPR8-unsplash.jpg) '}}>
+            <h2 className='text-3xl font-bold text-center mt-10 text-white'>Login</h2>
+            <form onSubmit={handleSubmit} className=' w-full md:w-1/2 lg:w-[40%]  mx-auto space-y-6 shadow-2xl shadow-white p-10 mt-5 rounded-2xl'>
                 <div className='flex flex-col space-y-2'>
-                    <label className='text-sm font-bold '>Email</label>
+                    <label className='text-sm font-bold text-white'>Email</label>
                     <input required name='email' type="email" placeholder="email" className="input input-bordered w-full " />
                 </div>
                 <div className='flex flex-col space-y-2'>
-                    <label className='text-sm font-bold '>password</label>
+                    <label className='text-sm font-bold text-white'>password</label>
                     <input required name='password' type="password" placeholder="password" className="input input-bordered w-full " />
                 </div>
-                <button type='submit' className='btn btn-outline  w-full'>Login</button>
-                <p>New Here <Link className="font-extrabold" href={'/signUp'}>Create Account</Link></p>
+                <button type='submit' className='btn btn-outline text-white w-full'>Login</button>
+                <p className="text-white">New Here <Link className="font-extrabold" href={'/signUp'}>Create Account</Link></p>
             </form>
         </div>
     );
