@@ -9,7 +9,7 @@ const Blogs = async () => {
     return (
         <div className="my-10">
             <h2 className="text-3xl text-center font-bold">Recent Blogs</h2>
-            <div className="grid grid-cols-3 gap-10 items-center mt-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 p-5 lg:grid-cols-3 gap-10 items-center mt-10">
                 {
                     blogsData?.map(i => <div key={i._id} className="card  bg-base-100 shadow-xl rounded-xl">
                         <img className="w-full h-[300px]" src={i?.image} alt={i?.title} width={600} height={500} />

@@ -43,20 +43,20 @@ const AddBlogs = () => {
     return (
         <div>
             <h2 className='text-3xl font-bold text-center mt-10'>Add New Blog</h2>
-            <form onSubmit={handleSubmit} className='grid items-center grid-cols-2 justify-center gap-5 w-full md:w-1/2 xl:w-[40%] mx-auto mt-10'>
-                <div className='flex flex-col space-y-2'>
+            <form onSubmit={handleSubmit} className='grid items-center p-4 grid-cols-2  justify-center gap-5 w-full md:w-1/2 xl:w-[40%] mx-auto mt-10'>
+                <div className='flex flex-col space-y-2 grid-cols-2 md:grid-cols-1'>
                     <label className='text-sm font-bold '>Author</label>
                     <input required value={user?.displayName} disabled type="text" placeholder="Type here" className="input input-bordered w-full " />
                 </div>
-                <div className='flex flex-col space-y-2'>
+                <div className='flex flex-col space-y-2 grid-cols-2 md:grid-cols-1'>
                     <label className='text-sm font-bold '>Title</label>
                     <input required name='title' type="text" placeholder="title" className="input input-bordered w-full " />
                 </div>
-                <div className='flex flex-col space-y-2'>
+                <div className='flex flex-col space-y-2 grid-cols-2 md:grid-cols-1'>
                     <label className='text-sm font-bold '>category</label>
                     <input required name='category' type="text" placeholder="category" className="input input-bordered w-full " />
                 </div>
-                <div className='flex flex-col space-y-2'>
+                <div className='flex flex-col space-y-2 grid-cols-2 md:grid-cols-1'>
                     <label className='text-sm font-bold '>image</label>
                     <input required name='image' type="text" placeholder="image" className="input input-bordered w-full " />
                 </div>
