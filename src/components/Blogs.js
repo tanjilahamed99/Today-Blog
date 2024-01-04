@@ -1,5 +1,5 @@
 
-// import Image from "next/image";
+import Image from "next/image";
 
 const Blogs = async () => {
     const res = await fetch("https://todays-blog-server.vercel.app/blogs")
@@ -13,14 +13,15 @@ const Blogs = async () => {
                 {
                     blogsData?.map(i => <div key={i._id} className="card  bg-base-100 shadow-xl rounded-xl">
                         <img className="w-full h-[300px]" src={i?.image} alt={i?.title} width={600} height={500} />
+                        {/* <Image className="w-full h-[300px]" src={i?.image} alt={i?.title} width={600} height={500} /> */}
                         <div className="card-body space-y-2">
                             <div>
                                 <h2 className="card-title text-sm font-bold">{i?.author}</h2>
                             </div>
                             <div className="flex justify-between">
-                                <h2 className="card-title text-lg">{i?.title}</h2>
+                                <h2 className="card-title">{i?.title.slice(0,25)}...</h2>
                             </div>
-                            <p>{i?.content.slice(0, 70)}</p>
+                            <p>{i?.content.slice(0, 70)}....</p>
                         </div>
                     </div>)
                 }
