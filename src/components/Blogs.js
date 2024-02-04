@@ -4,8 +4,6 @@ import Image from "next/image";
 const Blogs = async () => {
     const res = await fetch("https://todays-blog-server.vercel.app/blogs")
     const blogsData = await res.json()
-
-
     return (
         <div className="my-10">
             <h2 className="text-3xl text-center font-bold">Recent Blogs</h2>

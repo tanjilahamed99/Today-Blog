@@ -48,6 +48,9 @@ const MyBlogs = () => {
     }
 
 
+    // <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9673111961225622"
+    //  crossorigin="anonymous"></script>
+
 
     return (
         <div className="my-10">
