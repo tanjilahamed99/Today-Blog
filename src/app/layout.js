@@ -1,8 +1,7 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
 import AuthProvider from '@/components/Hooks/AuthProvider'
-
-
+import Head from 'next/head'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,11 +14,16 @@ export default function RootLayout({ children }) {
   return (
     <AuthProvider>
       <html className='container mx-auto' lang="en">
-          <body className={inter.className}>
-            {children}
-          </body>
+        <Head>
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9673111961225622"
+            crossorigin="anonymous"></script>
+        </Head>
+        
+        <body className={inter.className}>
+          {children}
+        </body>
       </html >
-    </AuthProvider>
+    </AuthProvider >
   )
 }
 
