@@ -5,6 +5,7 @@ import { AuthContext } from "../Hooks/AuthProvider";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import Link from "next/link";
+import AdSense from "../Add/AdSense";
 
 
 const MyBlogs = () => {
@@ -48,11 +49,14 @@ const MyBlogs = () => {
     }
 
 
-    
-
     return (
         <div className="my-10">
             <h2 className="text-3xl font-bold text-center mb-4">My Blogs</h2>
+
+            <div className="w-full">
+                {/* <AdSense /> */}
+                <h2 className="text-5xl font-bold">hello</h2>
+            </div>
 
             <div className="grid items-center my-4 gap-10 grid-cols-1 px-4 md:grid-cols-2 lg:grid-cols-3">
                 {
@@ -68,7 +72,7 @@ const MyBlogs = () => {
                                 <Link href={
                                     {
                                         pathname: '/updateBlog',
-                                        query:{
+                                        query: {
                                             id: i._id
                                         }
                                     }

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ctrl/react-adsense": "^1.7.0",
     "@tanstack/react-query": "^5.15.3",
     "axios": "^1.6.3",
     "firebase": "^10.7.1",
