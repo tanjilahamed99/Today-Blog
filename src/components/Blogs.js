@@ -12,7 +12,7 @@ const Blogs = async () => {
 
             <div className="w-full bg-purple-500 ">
                 <h2>hello every one</h2>
-                {/* <AdSense /> */}
+                {/* <AdSense /> */}/
                 <AnotherAds />
             </div>
 
